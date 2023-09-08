@@ -2,13 +2,10 @@ import java.util.Scanner;
 import java.util.Random;
 public class Lab2 {
     public static void main(String[] args) {
-
-        boolean gameActive = true;
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         while (gameActive) {
             printIntro();
-
             System.out.println("Enter scissor (0), rock (1), paper (2): ");
             int playerValue = scanner.nextInt();
             int computerValue = random.nextInt(3);
