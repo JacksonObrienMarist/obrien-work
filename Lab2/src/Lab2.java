@@ -4,7 +4,7 @@ public class Lab2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        while (gameActive) {
+        while (true) {
             printIntro();
             System.out.println("Enter scissor (0), rock (1), paper (2): ");
             int playerValue = scanner.nextInt();
