@@ -7,19 +7,23 @@ public class Simulator {
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-
+        // takes inputs
         System.out.println("Width: ");
         int width = scanner.nextInt();
         System.out.println("Height: ");
         int height = scanner.nextInt();
+        // creates random position
+        int xPosition = random.nextInt(width);
+        int yPosition = random.nextInt(height);
 
+        emptyRoom(width, height);
         System.out.println("Press enter to begin.");
         enterFunction();
-        emptyRoom(width, height);
-
+        // calls function to place robot
+        robotRoom(width, height, xPosition, yPosition);
     }
-
     public static void enterFunction() {
+        // waits for user to press enter to continue
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
@@ -34,6 +38,7 @@ public class Simulator {
     public static void emptyRoom(int width, int height) {
         for (int i = 0; i < height; i++) {
             for (int x = 0; x < width; x++) {
+                // if statement checks if the loop is on a border, if so it prints #, if not it prints blank space
                 if (i == 0 || i == height - 1 || x == 0 || x == width -1) {
                     System.out.print("#");
                 }
@@ -41,6 +46,22 @@ public class Simulator {
                     System.out.print(" ");
                 }
 
+            }
+            // spaces down to make rows after loop is done
+            System.out.println();
+        }
+    }
+    public static void robotRoom(int width, int height, int x, int y) {
+        for (int i = 0; i < height; i++) {
+            for (int z = 0; z < width; z++) {
+                if (i == 0 || i == height - 1 || z == 0 || z == height - 1) {
+                    System.out.print("#");
+                } else if (i == y && z == x) {
+                    // checks random coordinate, places "R" there 
+                    System.out.print("R");
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
