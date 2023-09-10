@@ -15,6 +15,7 @@ public class Simulator {
 
         System.out.println("Press enter to begin.");
         enterFunction();
+        emptyRoom(width, height);
 
     }
 
@@ -28,5 +29,20 @@ public class Simulator {
         System.out.println("Jackson O'Brien");
         System.out.println("220L");
         System.out.println("Professor Matthew Johnson");
+    }
+
+    public static void emptyRoom(int width, int height) {
+        for (int i = 0; i < height; i++) {
+            for (int x = 0; x < width; x++) {
+                if (i == 0 || i == height - 1 || x == 0 || x == width -1) {
+                    System.out.print("#");
+                }
+                else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println();
+        }
     }
 }
