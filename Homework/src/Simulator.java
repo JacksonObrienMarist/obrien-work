@@ -13,21 +13,25 @@ public class Simulator {
         System.out.println("Height: ");
         int height = scanner.nextInt();
         // creates random position
-        int xPosition = random.nextInt(width);
-        int yPosition = random.nextInt(height);
+        int xPosition = (int) (Math.random() * (width - 2) + 1);
+        int yPosition = (int) (Math.random() * (height - 2) + 1);
 
         emptyRoom(width, height);
         System.out.println("Press enter to begin.");
         enterFunction();
         // calls function to place robot
         robotRoom(width, height, xPosition, yPosition);
+
+        System.out.println("Press enter to exit.");
+        scanner.nextLine();
+        credits();
+
     }
     public static void enterFunction() {
         // waits for user to press enter to continue
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }
-
     public static void credits() {
         System.out.println("Thanks for using the Robot Simulator!");
         System.out.println("Jackson O'Brien");
@@ -57,7 +61,7 @@ public class Simulator {
                 if (i == 0 || i == height - 1 || z == 0 || z == height - 1) {
                     System.out.print("#");
                 } else if (i == y && z == x) {
-                    // checks random coordinate, places "R" there 
+                    // checks random coordinate, places "R" there
                     System.out.print("R");
                 } else {
                     System.out.print(" ");
