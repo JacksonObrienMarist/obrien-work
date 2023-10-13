@@ -16,22 +16,22 @@ public class Simulator {
         int xPosition = (int) (Math.random() * (width - 2) + 1);
         int yPosition = (int) (Math.random() * (height - 2) + 1);
 
-        emptyRoom(width, height);
         printInstructions();
-        System.out.println("Press enter to begin.");
-        enterFunction();
-        // calls function to place robot
-        robotRoom(width, height, xPosition, yPosition);
-
-        System.out.println("Press enter to exit.");
         scanner.nextLine();
-        credits();
 
-    }
-    public static void enterFunction() {
-        // waits for user to press enter to continue
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
+        while (true) {
+            System.out.println("Enter a command: ");
+            String command = scanner.nextLine().toLowerCase().trim();
+            if (command.equals("quit")) {
+                credits();
+                break;
+            } else {
+                checkCommand(command);
+                robotRoom(width, height, xPosition, yPosition);
+            }
+        }
+
+
     }
     public static void credits() {
         System.out.println("Thanks for using the Robot Simulator!");
@@ -74,5 +74,28 @@ public class Simulator {
     public static void printInstructions() {
         System.out.println("These are the commands that can be entered:");
         System.out.println("forward, reverse, turn left, turn right, quit");
+    }
+
+    public static void checkCommand(String input) {
+        switch (input) {
+            case "forward":
+                System.out.println("Robot has moved forward");
+                break;
+            case "reverse":
+                System.out.println("Robot has moved backward");
+                break;
+            case "turn right":
+                System.out.println("Robot has turned right");
+                break;
+            case "turn left":
+                System.out.println("Robot has turned left");
+                break;
+            case "quit":
+                  credits();
+                  break;
+            default:
+                System.out.println("Invalid command entered, please try one from the list");
+
+        }
     }
 }
