@@ -2,7 +2,9 @@ import java.util.Scanner;
 import java.util.Random;
 public class Simulator {
 
-    private static String direction = "North";
+    public static String direction = "North";
+    public static int xPosition;
+    public static int yPosition;
     public  static void main(String[] args) {
         System.out.println("Robot Simulation");
         System.out.println("In this program the user is able to move a robot around within a box");
@@ -15,8 +17,8 @@ public class Simulator {
         System.out.println("Height: ");
         int height = scanner.nextInt();
         // creates random position
-        int xPosition = (int) (Math.random() * (width - 2) + 1);
-        int yPosition = (int) (Math.random() * (height - 2) + 1);
+        xPosition = (int) (Math.random() * (width - 2) + 1);
+        yPosition = (int) (Math.random() * (height - 2) + 1);
 
         printInstructions();
         scanner.nextLine();
@@ -87,9 +89,11 @@ public class Simulator {
         switch (input) {
             case "forward":
                 System.out.println("Robot has moved forward");
+                moveForward();
                 break;
             case "reverse":
                 System.out.println("Robot has moved backward");
+                reverse();
                 break;
             case "turn right":
                 System.out.println("Robot has turned right");
@@ -130,5 +134,37 @@ public class Simulator {
                 break;
         }
         return direction;
+    }
+    public static void moveForward() {
+        switch (direction) {
+            case "North":
+                yPosition--;
+                break;
+            case "South":
+                yPosition++;
+                break;
+            case "East":
+                xPosition++;
+                break;
+            case "West":
+                xPosition--;
+                break;
+        }
+    }
+    public static void reverse() {
+        switch (direction) {
+            case "North":
+                yPosition++;
+                break;
+            case "South":
+                yPosition--;
+                break;
+            case "East":
+                xPosition--;
+                break;
+            case "West":
+                xPosition++;
+                break;
+        }
     }
 }
