@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Random;
 public class Simulator {
+
+    private static String direction = "North";
     public  static void main(String[] args) {
         System.out.println("Robot Simulation");
         System.out.println("In this program the user is able to move a robot around within a box");
@@ -18,16 +20,21 @@ public class Simulator {
 
         printInstructions();
         scanner.nextLine();
+        robotRoom(width, height, xPosition, yPosition);
 
         while (true) {
             System.out.println("Enter a command: ");
-            String command = scanner.nextLine().toLowerCase().trim();
+            String command = scanner.nextLine().toLowerCase();
+
             if (command.equals("quit")) {
                 credits();
                 break;
             } else {
+
                 checkCommand(command);
+                direction = updateDirection(command, direction);
                 robotRoom(width, height, xPosition, yPosition);
+                System.out.println("The robot is currently facing " + direction);
             }
         }
 
@@ -97,5 +104,31 @@ public class Simulator {
                 System.out.println("Invalid command entered, please try one from the list");
 
         }
+    }
+    public static String updateDirection(String command, String direction) {
+        switch (command) {
+            case "turn right":
+                if (direction.equals("North")) {
+                    return "East";
+                } else if (direction.equals("East")) {
+                    return "South";
+                } else if (direction.equals("South")) {
+                    return "East";
+                } else if (direction.equals("West")) {
+                    return "South";
+                }
+            case "turn left":
+                if (direction.equals("North")) {
+                    return "West";
+                } else if (direction.equals("East")) {
+                    return "North";
+                } else if (direction.equals("South")) {
+                    return "West";
+                } else if (direction.equals("West")) {
+                    return "North";
+                }
+                break;
+        }
+        return direction;
     }
 }
