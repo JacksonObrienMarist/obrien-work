@@ -141,6 +141,19 @@ public class TicTacToe {
                 return true;
             }
         }
+        for (int i = 0; i < 3; i++) {
+            int sameCount = 0;
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == prevMark) {
+                    sameCount++;
+                }
+            }
+            if (sameCount == 3) {
+                //game is over, what do we do now?
+                System.out.println("Game over");
+                return true;
+            }
+        }
 
 
         //      check if any column is full with the same mark
