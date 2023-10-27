@@ -21,38 +21,43 @@ public class CandyRoll {
 
     }
     public Candy removeCandy() {
+        if (isEmpty()) {
+            throw new IllegalStateException("CandyRoll is empty");
+        }
+
+        Candy removedCandy = front.candy;
         if (front == back) {
-            Candy removedCandy = front.candy;
             front = null;
             back = null;
-            return removedCandy;
         } else {
-            Node current = front;
-            while (current.next != back) {
-                current = current.next;
-            }
-            Candy removedCandy = back.candy;
-            back = current;
-            current.next = null;
-            return removedCandy;
+            front = front.next;
         }
+        return removedCandy;
     }
+
     public boolean isEmpty() {
         return front == null;
     }
 
     public Candy frontCandy() {
+        if (isEmpty()) {
+            throw new IllegalStateException("CandyRoll is empty");
+        }
         return front.candy;
     }
 
     public Candy backCandy() {
+        if (isEmpty()) {
+            throw new IllegalStateException("CandyRoll is empty");
+        }
         return back.candy;
     }
+
     class Node {
         Candy candy;
         Node next;
 
-         Node(Candy candy) {
+        Node(Candy candy) {
             this.candy = candy;
             this.next = null;
         }

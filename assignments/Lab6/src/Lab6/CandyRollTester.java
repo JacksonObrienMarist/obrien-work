@@ -24,6 +24,7 @@ public class CandyRollTester {
         System.out.println("Back candy now: " + backCandy.getKind());
 
         backCandy = candyRoll.backCandy();
+
         System.out.println("Back candy: " + backCandy.getKind());
 
         System.out.println("Is the candy roll empty: " + candyRoll.isEmpty());
