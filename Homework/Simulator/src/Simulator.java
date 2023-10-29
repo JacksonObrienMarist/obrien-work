@@ -7,6 +7,7 @@ public class Simulator {
     public static int yPosition;
     public static int width;
     public static int height;
+    public static char[][] room;
     public  static void main(String[] args) {
         System.out.println("Robot Simulation");
         System.out.println("In this program the user is able to move a robot around within a box");
@@ -64,16 +65,23 @@ public class Simulator {
         }
     }
     public static void robotRoom(int width, int height, int x, int y) {
+
+        room = new char[height][width];
         for (int i = 0; i < height; i++) {
             for (int z = 0; z < width; z++) {
-                if (i == 0 || i == height - 1 || z == 0 || z == height - 1) {
-                    System.out.print("#");
-                } else if (i == y && z == x) {
-                    // checks random coordinate, places "R" there
-                    System.out.print("R");
+                if (i == 0 || i == height - 1 || z == 0 || z == width - 1) {
+                    room[i][z] = '#';
                 } else {
-                    System.out.print(" ");
+                    room[i][z] = ' ';
                 }
+            }
+        }
+
+        room[y][x] = 'R';
+
+        for (int i = 0; i < height; i++) {
+            for (int z = 0; z < width; z++) {
+                System.out.print(room[i][z]);
             }
             System.out.println();
         }
