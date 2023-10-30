@@ -47,6 +47,7 @@ public class Simulator {
         System.out.println("Jackson O'Brien");
         System.out.println("220L");
         System.out.println("Professor Matthew Johnson");
+       
     }
     public static void emptyRoom(int width, int height) {
         for (int i = 0; i < height; i++) {
@@ -70,15 +71,29 @@ public class Simulator {
         for (int i = 0; i < height; i++) {
             for (int z = 0; z < width; z++) {
                 if (i == 0 || i == height - 1 || z == 0 || z == width - 1) {
-                    room[i][z] = '#';
+                    room[i][z] = '\u2B1B';
                 } else {
-                    room[i][z] = ' ';
+                    room[i][z] = '\u2B1C';
                 }
             }
         }
 
-        room[y][x] = 'R';
+        switch (direction) {
+            case "North":
+                room[y][x] = '\u2191';
+                break;
+            case "South":
+                room[y][x] = '\u2193';
+                break;
+            case "East":
+                room[y][x] = '\u2192';
+                break;
+            case "West":
+                room[y][x] = '\u2190';
+                break;
 
+        }
+        
         for (int i = 0; i < height; i++) {
             for (int z = 0; z < width; z++) {
                 System.out.print(room[i][z]);
