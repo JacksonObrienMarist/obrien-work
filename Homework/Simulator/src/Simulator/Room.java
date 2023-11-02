@@ -17,10 +17,10 @@ class Entity {
 public class Room {
     private static final String OBSTACLE = Obstacle.getAvatar();
     private Entity[][] locations;
-
+    private Goal goal;
     public Room(int width, int height) {
         this.locations = new Entity[height][width];
-
+        this.goal = new Goal();
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
@@ -30,6 +30,13 @@ public class Room {
                 }
             }
         }
+    }
+
+    public void goalPlace(int robotX, int robotY) {
+        goal.place(locations, robotX, robotY);
+    }
+    public boolean goalReached(int x, int y) {
+        return goal.isAtPosition(x,y);
     }
     public Entity[][] getLocations() {
         return locations;

@@ -1,28 +1,28 @@
 package Simulator;
+import java.util.Random;
 
-public class Goal extends Room{
-    private int x;
-    private int y;
-    private static String avatar = "\uD83C\uDFC1";
+class Goal extends Entity {
+    private static final String avatar = "\uD83C\uDFF4";
+    private int goalX;
+    private int goalY;
 
-    public Goal(int width, int height, int x, int y) {
-        super(width, height);
-        this.x = x;
-        this.y = y;
+    public Goal() {
+        super(avatar);
     }
-    public int getX() {
-        return x;
+
+    public void place(Entity[][] locations, int robotX, int robotY) {
+        Random random = new Random();
+
+        do {
+            goalX = random.nextInt(locations[0].length);
+            goalY = random.nextInt(locations.length);
+        } while (locations[goalY][goalX].getSymbol().equals("\u2B1B") ||
+                (goalX == robotX && goalY == robotY));
+
+        locations[goalY][goalX] = this;
     }
-    public void setX(int x) {
-        this.x = x;
-    }
-    public int getY() {
-        return y;
-    }
-    public void setY(int y) {
-        this.y = y;
-    }
-    public static String getAvatar() {
-        return avatar;
+
+    public boolean isAtPosition(int x, int y) {
+        return goalX == x && goalY == y;
     }
 }
