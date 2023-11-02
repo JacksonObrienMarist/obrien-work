@@ -93,7 +93,6 @@ public class Simulator {
                 break;
 
         }
-        
         for (int i = 0; i < height; i++) {
             for (int z = 0; z < width; z++) {
                 System.out.print(room[i][z]);
