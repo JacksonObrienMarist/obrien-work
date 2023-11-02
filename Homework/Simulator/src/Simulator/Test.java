@@ -17,8 +17,9 @@ public class Test {
 
         printInstructions();
         scanner.nextLine();
-
+        room.placeObstacles(robot.getXPosition(), robot.getYPosition());
         while (true) {
+
             room.display(robot.getXPosition(), robot.getYPosition(), robot.getDirection());
             System.out.println("The robot is currently facing " + robot.getDirectionName());
             System.out.println("Enter a command: ");

@@ -1,17 +1,21 @@
 package Simulator;
-
+import java.util.Random;
 class Entity {
-    private char symbol;
+    private String symbol;
 
-    public Entity(char symbol) {
+    public Entity(String symbol) {
         this.symbol = symbol;
     }
     public String toString() {
         return String.valueOf(symbol);
     }
+    public String getSymbol() {
+        return symbol;
+    }
 }
 
 public class Room {
+    private static final String OBSTACLE = Obstacle.getAvatar();
     private Entity[][] locations;
 
     public Room(int width, int height) {
@@ -20,9 +24,9 @@ public class Room {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
-                    this.locations[i][j] = new Entity('\u2B1B');
+                    this.locations[i][j] = new Entity("⬛");
                 } else {
-                    this.locations[i][j] = new Entity('\u2B1C');
+                    this.locations[i][j] = new Entity("⬜");
                 }
             }
         }
@@ -30,6 +34,29 @@ public class Room {
     public Entity[][] getLocations() {
         return locations;
     }
+
+    public void placeObstacles(int robotX, int robotY) {
+        Random random = new Random();
+        int totalSpaces = locations.length * locations[0].length;
+        int maxNumberOfObstacles = totalSpaces / 10;
+
+
+        int numberOfObstacles = random.nextInt(maxNumberOfObstacles) + 1;
+
+        while (numberOfObstacles > 0) {
+            int x = random.nextInt(locations[0].length);
+            int y = random.nextInt(locations.length);
+
+            if (locations[y][x].getSymbol().equals("⬜") && (x != robotX || y != robotY)) {
+                locations[y][x] = new Entity(Obstacle.getAvatar());
+                numberOfObstacles--;
+            }
+        }
+    }
+    public boolean isObstacle(int x, int y) {
+        return locations[y][x].getSymbol() == OBSTACLE;
+    }
+
     public void display(int x, int y, char direction) {
         for (int i = 0; i < locations.length; i++) {
             for (int j = 0; j < locations[i].length; j++) {

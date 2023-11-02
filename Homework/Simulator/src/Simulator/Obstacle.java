@@ -3,7 +3,7 @@ package Simulator;
 public class Obstacle extends Room {
     private int x;
     private int y;
-    private static String avatar = "\uD83D\uDCA9";
+    private static String avatar = "\uD83E\uDDF1";
 
     public Obstacle(int width, int height, int x, int y) {
         super(width, height);

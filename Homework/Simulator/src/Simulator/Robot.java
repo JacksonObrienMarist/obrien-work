@@ -59,28 +59,28 @@ public class Robot {
     public void moveForward() {
         switch (direction) {
             case "North":
-                if (yPosition - 1 > 0) {
+                if (yPosition - 1 > 0 && !room.isObstacle(xPosition, yPosition - 1)) {
                     yPosition--;
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
                 break;
             case "South":
-                if (yPosition + 1 < room.getLocations().length - 1) {
+                if (yPosition + 1 < room.getLocations().length - 1 && !room.isObstacle(xPosition, yPosition + 1)) {
                     yPosition++;
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
                 break;
             case "East":
-                if (xPosition + 1 < room.getLocations()[0].length - 1) {
+                if (xPosition + 1 < room.getLocations()[0].length - 1 && !room.isObstacle(xPosition + 1, yPosition)) {
                     xPosition++;
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
                 break;
             case "West":
-                if (xPosition - 1 > 0) {
+                if (xPosition - 1 > 0 && !room.isObstacle(xPosition - 1, yPosition)) {
                     xPosition--;
                 } else {
                     System.out.println("The robot can't move through walls.");
@@ -92,28 +92,28 @@ public class Robot {
     public void reverse() {
         switch (direction) {
             case "North":
-                if (yPosition + 1 < room.getLocations().length - 1) {
+                if (yPosition + 1 < room.getLocations().length - 1 && !room.isObstacle(xPosition, yPosition + 1)) {
                     yPosition++;
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
                 break;
             case "South":
-                if (yPosition - 1 > 0) {
+                if (yPosition - 1 > 0 && !room.isObstacle(xPosition, yPosition - 1)) {
                     yPosition--;
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
                 break;
             case "East":
-                if (xPosition - 1 > 0) {
+                if (xPosition - 1 > 0 && !room.isObstacle(xPosition - 1, yPosition)) {
                     xPosition--;
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
                 break;
             case "West":
-                if (xPosition + 1 < room.getLocations()[0].length - 1) {
+                if (xPosition + 1 < room.getLocations()[0].length - 1 && !room.isObstacle(xPosition + 1, yPosition)) {
                     xPosition++;
                 } else {
                     System.out.println("The robot can't move through walls.");
