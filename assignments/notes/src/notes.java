@@ -52,5 +52,4 @@
 // FIFO (first in, first out)
 //overide
 public class notes {
-
 }

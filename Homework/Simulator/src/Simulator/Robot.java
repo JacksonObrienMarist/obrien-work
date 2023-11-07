@@ -1,19 +1,21 @@
 package Simulator;
 
-public class Robot {
+public class Robot extends Object {
     private String direction;
     private int xPosition;
     private int yPosition;
     private Room room;
-    private static String  avatar;
+    private static String avatar;
 
     public Robot(Room room, int xPosition, int yPosition, String direction) {
+        super("\uD83E\uDD16"); // Call the constructor of the superclass, Object
         this.room = room;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.direction = direction;
         this.avatar = "\uD83E\uDD16";
     }
+
 
 
     public char getDirection() {

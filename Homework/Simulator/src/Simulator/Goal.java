@@ -1,7 +1,7 @@
 package Simulator;
 import java.util.Random;
 
-class Goal extends Entity {
+public class Goal extends Object {
     private static final String avatar = "\uD83C\uDFF4";
     private int goalX;
     private int goalY;
@@ -10,7 +10,7 @@ class Goal extends Entity {
         super(avatar);
     }
 
-    public void place(Entity[][] locations, int robotX, int robotY) {
+    public void place(Object[][] locations, int robotX, int robotY) {
         Random random = new Random();
 
         do {

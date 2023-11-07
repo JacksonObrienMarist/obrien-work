@@ -1,9 +1,9 @@
 package Simulator;
 import java.util.Random;
-class Entity {
+class Object {
     private String symbol;
 
-    public Entity(String symbol) {
+    public Object(String symbol) {
         this.symbol = symbol;
     }
     public String toString() {
@@ -15,18 +15,18 @@ class Entity {
 }
 
 public class Room {
-    private static final String OBSTACLE = Obstacle.getAvatar();
-    private Entity[][] locations;
+    private static String OBSTACLE = Obstacle.getAvatar();
+    private Object[][] locations;
     private Goal goal;
     public Room(int width, int height) {
-        this.locations = new Entity[height][width];
+        this.locations = new Object[height][width];
         this.goal = new Goal();
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
-                    this.locations[i][j] = new Entity("⬛");
+                    this.locations[i][j] = new Object("⬛");
                 } else {
-                    this.locations[i][j] = new Entity("⬜");
+                    this.locations[i][j] = new Object("⬜");
                 }
             }
         }
@@ -38,7 +38,7 @@ public class Room {
     public boolean goalReached(int x, int y) {
         return goal.isAtPosition(x,y);
     }
-    public Entity[][] getLocations() {
+    public Object[][] getLocations() {
         return locations;
     }
 
@@ -55,7 +55,7 @@ public class Room {
             int y = random.nextInt(locations.length);
 
             if (locations[y][x].getSymbol().equals("⬜") && (x != robotX || y != robotY)) {
-                locations[y][x] = new Entity(Obstacle.getAvatar());
+                locations[y][x] = new Object(Obstacle.getAvatar());
                 numberOfObstacles--;
             }
         }
