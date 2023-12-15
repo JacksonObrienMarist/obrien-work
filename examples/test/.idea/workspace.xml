@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8c9b3482-f341-40d6-8376-77f76877c81f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../assignments/robot/src/robot/Robot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/zoo/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/zoo/Canine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/zoo/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/zoo/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/zoo/Wolf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Zoo/src/zoo/Zoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../animal/src/animalPackage/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../animal/src/animalPackage/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../animal/src/animalPackage/SuperDuper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../car2/src/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../car2/src/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../car2/src/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice/src/CarExample/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice/src/CarExample/Convertable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice/src/CarExample/Dumptruck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice/src/CarExample/Pickup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice/src/CarExample/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Canine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/practice.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2YwPp1DZzzMhep6UzCKOXPvnVKh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c9b3482-f341-40d6-8376-77f76877c81f" name="Changes" comment="" />
+      <created>1701433850514</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701433850514</updated>
+      <workItem from="1701433851527" duration="2129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
