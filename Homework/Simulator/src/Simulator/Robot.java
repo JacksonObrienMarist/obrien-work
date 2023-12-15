@@ -21,6 +21,8 @@ public class Robot extends Object {
     private Node front;
     private Node end;
 
+
+
     // Constructor for robot, it extends from object
     public Robot(Room room, int xPosition, int yPosition, String direction) {
         super("\uD83E\uDD16"); // Call the constructor of the superclass, Object
@@ -124,11 +126,60 @@ public class Robot extends Object {
             current = current.next;
         }
 
-
         xPosition = initialX;
         yPosition = initialY;
         direction = lastDirection;
+    }
 
+    public void enqueue(String command) {
+        Node node = new Node(command);
+        if (end == null) {
+            front = node;
+            end = node;
+        } else {
+            end.next = node;
+            end = node;
+        }
+    }
+
+    public String dequeue() {
+        if (front == null) {
+            return null;
+        }
+        String command = front.command;
+        front = front.next;
+        if (front == null) {
+            end = null;
+        }
+        return command;
+    }
+
+    public boolean checkIfEmpty() { // This checks if the list is empty
+        return front == null;
+    }
+
+    public void batchCommand() { // The batch commands which is a loop that will go through all of the commands
+        while (!checkIfEmpty()) {
+            String command = dequeue();
+            useCommand(command);
+        }
+    }
+
+    private void useCommand(String command) {
+        switch (command) {
+            case "forward":
+                moveForward();
+                break;
+            case "reverse":
+                reverse();
+                break;
+            case "turn right":
+                turnRight();
+                break;
+            case "turn left":
+                turnLeft();
+                break;
+        }
     }
 
     public char getDirection() {
@@ -180,7 +231,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("forward");
                 break;
             case "South":
                 if (yPosition + 1 < room.getLocations().length - 1 && !room.isObstacle(xPosition, yPosition + 1)) {
@@ -189,7 +239,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("forward");
                 break;
             case "East":
                 if (xPosition + 1 < room.getLocations()[0].length - 1 && !room.isObstacle(xPosition + 1, yPosition)) {
@@ -198,7 +247,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("forward");
                 break;
             case "West":
                 if (xPosition - 1 > 0 && !room.isObstacle(xPosition - 1, yPosition)) {
@@ -207,13 +255,14 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("forward");
                 break;
         }
     }
 
     public void reverse() {
+
         switch (direction) {
+
             case "North":
                 if (yPosition + 1 < room.getLocations().length - 1 && !room.isObstacle(xPosition, yPosition + 1)) {
                     yPosition++;
@@ -221,7 +270,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("reverse");
                 break;
             case "South":
                 if (yPosition - 1 > 0 && !room.isObstacle(xPosition, yPosition - 1)) {
@@ -230,7 +278,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("reverse");
                 break;
             case "East":
                 if (xPosition - 1 > 0 && !room.isObstacle(xPosition - 1, yPosition)) {
@@ -238,7 +285,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("reverse");
                 break;
             case "West":
                 if (xPosition + 1 < room.getLocations()[0].length - 1 && !room.isObstacle(xPosition + 1, yPosition)) {
@@ -247,7 +293,6 @@ public class Robot extends Object {
                 } else {
                     System.out.println("The robot can't move through walls.");
                 }
-                addCommand("reverse");
                 break;
         }
     }
@@ -256,40 +301,33 @@ public class Robot extends Object {
         switch (direction) {
             case "North":
                 direction = "East";
-                addCommand("turn right");
                 break;
             case "East":
                 direction = "South";
-                addCommand("turn right");
                 break;
             case "South":
                 direction = "West";
-                addCommand("turn right");
                 break;
             case "West":
                 direction = "North";
-                addCommand("turn right");
                 break;
         }
+
     }
 
     public void turnLeft() {
         switch (direction) {
             case "North":
                 direction = "West";
-                addCommand("turn left");
                 break;
             case "East":
                 direction = "North";
-                addCommand("turn left");
                 break;
             case "South":
                 direction = "East";
-                addCommand("turn left");
                 break;
             case "West":
                 direction = "South";
-                addCommand("turn left");
                 break;
         }
     }

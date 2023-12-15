@@ -47,6 +47,15 @@ public class Test {
                 robot.setPosition(initX,inity);
                 robot.setDirection("North");
 
+            } else if (command.equals("batch")){
+                System.out.println("Enter commands in the order you want seperated by commas");
+                String batch = scanner.nextLine();
+                //I found the split command useful here to make the list of commands
+                String[] commands = batch.split(", ");
+                for (int i = 0; i < commands.length; i++) {
+                    robot.enqueue(commands[i]);
+                }
+                robot.batchCommand();
             }
 
         }
@@ -61,7 +70,7 @@ public class Test {
 
     public static void printInstructions() {
         System.out.println("These are the commands that can be entered:");
-        System.out.println("forward, reverse, turn left, turn right, undo, rewind, quit");
+        System.out.println("forward, reverse, turn left, turn right, undo, rewind, batch, quit");
     }
 
     public static void checkCommand(String input, Robot robot) {
@@ -69,18 +78,22 @@ public class Test {
             case "forward":
                 System.out.println("Robot has moved forward");
                 robot.moveForward();
+                robot.addCommand("forward");
                 break;
             case "reverse":
                 System.out.println("Robot has moved backward");
                 robot.reverse();
+                robot.addCommand("reverse");
                 break;
             case "turn right":
                 System.out.println("Robot has turned right");
                 robot.turnRight();
+                robot.addCommand("turn right");
                 break;
             case "turn left":
                 System.out.println("Robot has turned left");
                 robot.turnLeft();
+                robot.addCommand("turn left");
                 break;
             case "undo":
                 System.out.println("Robot has undid last command");
@@ -89,7 +102,7 @@ public class Test {
             case "quit":
                 credits();
                 break;
-            case "rewind":
+            case "rewind", "batch":
                 break;
             default:
                 System.out.println("Invalid code entered");
